@@ -31,20 +31,11 @@ extension FeedViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             
-//            let photoService: PhotoService?
-//
-//            photoService = PhotoService(container: tableView)
-//
-//            guard let photo = photoService?.photo(atIndexPath: indexPath,
-//                                                  byUrl: photoUrl) else { return UITableViewCell() }
-            
             DispatchQueue.main.async {
                 self.imageService.loadImage(url: photoUrl) { photo in
                     photoCell.configureImage(with: photo)
                 }
-                
             }
-            
             
             return photoCell
         case 1:
