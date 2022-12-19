@@ -35,8 +35,10 @@ final class ProfileCell: UITableViewHeaderFooterView {
             self.profileImage.layer.shouldRasterize = false
             self.profileImage.layer.cornerRadius = 20
             self.profileImage.clipsToBounds = true
+            
+            self.mainView.layer.backgroundColor = UIColor.headerColor.cgColor
+            self.mainView.layer.cornerRadius = 10
         }
-        
         
         if let url = image {
             imageService.loadImage(url: url) { image in
@@ -47,6 +49,12 @@ final class ProfileCell: UITableViewHeaderFooterView {
             }
         }
     }
-    
+}
+
+extension UIColor {
+    static let headerColor = UIColor(red: 229.0 / 255.0,
+                                     green: 227.0 / 255.0,
+                                     blue: 228.0 / 255.0,
+                                     alpha: 0.3)
 }
 
